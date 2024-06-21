@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 
+from config import config
+
 app = Flask(__name__)
 
 
@@ -9,4 +11,5 @@ def index():
 
 
 if __name__ == '__main__':
+    app.config.from_object(config['development'])
     app.run()
