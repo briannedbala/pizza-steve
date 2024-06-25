@@ -1,110 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El padrino</title>
-    <link rel="stylesheet" href="static\style.css">
+    <title>Bienvenido</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button-container button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .login-button {
+            background-color: #007bff;
+        }
+        .register-button {
+            background-color: #28a745;
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-        <div class='container-hero'>
-            <div class="container hero">
-                <div class="customer-support">
-                    <i class="fa-solid fa-headset"></i>
-                    <div class="content-customer-support">
-                        <span class="text">Soporte al cliente</span>
-                        <span class="number">261-506-2028</span>
-                    </div>
-                </div>
-
-                <div class="container-logo">
-                    <i class="fa-solid fa-store"></i>
-                    <h1 class="logo"><a href="/">Corleone</a></h1>
-                </div>
-
-                <div class="container-user">
-                    <a href="/login"><i class="fa-solid fa-user"></i></a>
-                    <i class="fa-solid fa-basket-shopping"></i>
-                    <div class="content-shopping-cart">
-                        <span class="text">Carrito de compras</span>
-                        <span class="number">(0)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-items">
-            <div class="item">
-                <figure>
-                    <img src="/static/img/muzarella.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza muzarella</h2>
-                    <p class="price">$5900</p>
-                    <button type="submit">Añadir al carrito</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/napolitana.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza napolitana</h2>
-                    <p class="price">$6800</p>
-                    <button>Añadir al carrito</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/jamon_morron.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza con jamon y morron</h2>
-                    <p class="price">$7900</p>
-                    <button>Añadir al carrito</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/fugazeta.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza fugaza grande</h2>
-                    <p class="price">$8650</p>
-                    <button>Añadir al carrito</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/fugazeta_jamon.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza fugaza con jamon grande</h2>
-                    <p class="price">$15550</p>
-                    <button>Añadir al carrito</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/calabresa.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza calabresa</h2>
-                    <p class="price">$5900</p>
-                    <button>Añadir al carrito</button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+    <h1>Bienvenido</h1>
+    <div class="button-container">
+        <button class="login-button" onclick="window.location.href='/login'">Iniciar Sesión</button>
+        <button class="register-button" onclick="window.location.href='/register'">Registrarse</button>
+    </div>
 </body>
 </html>
