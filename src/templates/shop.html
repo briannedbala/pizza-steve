@@ -1,110 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tienda de Pizzas</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f9fa;
+                color: #333;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El padrino</title>
-    <link rel="stylesheet" href="static\style.css">
-</head>
+            .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            }
+            .header .left, .header .center, .header .right {
+                display: flex;
+                align-items: center;
+            }
+            .header .left img, .header .center img, .header .right img {
+                height: 40px;
+                margin-right: 10px;
+            }
+            .header .center {
+                flex: 1;
+                justify-content: center;
+            }
+            .header .right button {
+                background: none;
+                border: none;
+                color: white;
+                cursor: pointer;
+                margin-left: 20px;
+                font-size: 16px;
+            }
 
-<body>
-    <header>
-        <div class='container-hero'>
-            <div class="container hero">
-                <div class="customer-support">
-                    <i class="fa-solid fa-headset"></i>
-                    <div class="content-customer-support">
-                        <span class="text">Soporte al cliente</span>
-                        <span class="number">261-506-2028</span>
-                    </div>
-                </div>
+            main {
+                padding: 20px;
+            }
 
-                <div class="container-logo">
-                    <i class="fa-solid fa-store"></i>
-                    <h1 class="logo"><a href="/">Corleone</a></h1>
-                </div>
+            /* Estilos para la lista de productos */
+            .product-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap: 20px;
+            }
 
-                <div class="container-user">
-                    <a href="/login"><i class="fa-solid fa-user"></i></a>
-                    <i class="fa-solid fa-basket-shopping"></i>
-                    <div class="content-shopping-cart">
-                        <span class="text">Carrito de compras</span>
-                        <span class="number">(0)</span>
-                    </div>
-                </div>
+            .product {
+                background-color: white;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                width: 200px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+
+            .product img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+
+            .product-price {
+                font-size: 1.2em;
+                margin: 10px 0;
+                color: #28a745;
+            }
+
+            .add-to-cart {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+            }
+
+            .add-to-cart:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="left">
+                <img src="logo-atencion.png" alt="Logo Soporte">
+                <span>+123 456 7890</span>
             </div>
-        </div>
-
-        <div class="container-items">
-            <div class="item">
-                <figure>
-                    <img src="/static/img/muzarella.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza muzarella</h2>
-                    <p class="price">$5900</p>
-                    <button type="submit">Añadir al carrito</button>
-                </div>
+            <div class="center">
+                <img src="/src/static/img/logo-nombre.png" alt="Logo Negocio">
+                <span>Pizza Steve</span>
             </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/napolitana.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza napolitana</h2>
-                    <p class="price">$6800</p>
-                    <button>Añadir al carrito</button>
-                </div>
+            <div class="right">
+                <button onclick="location.href='usuario.html'">Usuario</button>
+                <button onclick="location.href='cart'">Carrito</button>
             </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/jamon_morron.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza con jamon y morron</h2>
-                    <p class="price">$7900</p>
-                    <button>Añadir al carrito</button>
+        </header>
+        <main>
+            <div class="product-list">
+                {% for product in products %}
+                <div class="product">
+                    <img src="{{ product.image }}" alt="{{ product.name }}">
+                    <p>{{ product.name }}</p>
+                    <div class="product-price">${{ product.price }}</div>
+                    <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="add-to-cart">Agregar al carrito</a>
                 </div>
+                {% endfor %}
             </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/fugazeta.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza fugaza grande</h2>
-                    <p class="price">$8650</p>
-                    <button>Añadir al carrito</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/fugazeta_jamon.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza fugaza con jamon grande</h2>
-                    <p class="price">$15550</p>
-                    <button>Añadir al carrito</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <figure>
-                    <img src="/static/img/calabresa.jpg" alt="producto" />
-                </figure>
-                <div class="info-product">
-                    <h2>Pizza calabresa</h2>
-                    <p class="price">$5900</p>
-                    <button>Añadir al carrito</button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
-</body>
-</html>
+        </main>
+    </body>
+    </html>
